@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Welcome Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, #ffcc00, #ff6600);
+            color: #fff;
+            text-align: center;
+			background-image: url('happy-diwali-background.png');
+            background-size: 1000px;
+            background-position: center;
+            
+           
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 100);
+			color: rgba(0 ,0 ,0, 100);
+			
+        }
+        .quote {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .diyas {
+            margin-top: 30px;
+        }
+        .diyas img {
+            width: 60px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcomeMessage"></h1>
+    <div class="quote" id="quoteMessage"></div>
+    <div class="diyas">
+      
+
+    </div>
+
+    <script>
+        function welcomeUser() {
+            const username = prompt("Please enter your username:");
+            if (username) {
+                document.getElementById('welcomeMessage').innerText = `Happy Diwali, @${username}!`;
+            } else {
+                document.getElementById('welcomeMessage').innerText = 'Happy Diwali, Guest!';
+            }
+            displayRandomQuote();
+        }
+
+        const quotes = [
+            "May the lights of Diwali bring joy and prosperity to your life.",
+            "Wishing you a Diwali filled with joy, happiness, and endless blessings.",
+            "Let this Diwali illuminate your life with peace, joy, and love.",
+            "May your life be as colorful and sparkling as the Diwali lights.",
+            "On this auspicious festival, may you be blessed with good fortune and happiness."
+        ];
+
+        function displayRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quoteMessage').innerText = quotes[randomIndex];
+        }
+
+        window.onload = welcomeUser;
+    </script>
+</body>
+</html>
